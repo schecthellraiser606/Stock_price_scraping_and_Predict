@@ -1,8 +1,11 @@
 import sqlite3
 import scraping as sc
 
+import pandas as pd
+
 def Create(file, code, year_s):        
     #データベース名.db拡張子で設定
+    
     dbname = (str(file))
     #データベースを作成
     db = sqlite3.connect(dbname, isolation_level=None)
@@ -20,6 +23,7 @@ def Create(file, code, year_s):
     
     for t in cursor.execute(sql):
       print(t) #OKであれば('price',)と表記される
+      
    
     db.close()
     

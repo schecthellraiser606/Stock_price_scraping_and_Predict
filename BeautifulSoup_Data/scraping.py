@@ -11,6 +11,7 @@ def get_DataFrame(code, For_Years):
     """
     
     main_url = 'https://kabuoji3.com/stock/'
+    header = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:93.0) Gecko/20100101 Firefox/93.0 "}
     
      # 取得する年の割り出し
     today = datetime.date.today()
@@ -23,7 +24,7 @@ def get_DataFrame(code, For_Years):
       code_url = main_url + str(code) + "/" 
       
       #取得したHTMLからBeautifulSoupオブジェクト作成(First Page)
-      response = requests.get(code_url)
+      response = requests.get(code_url, headers=header)
       soup = bs(response.content, "html.parser")
       
       #証券コードを取得する
@@ -36,7 +37,7 @@ def get_DataFrame(code, For_Years):
       # 空DataFrameの作成
       df = pd.DataFrame(columns = head)
       
-      time.sleep(0.5)
+      time.sleep(5)
       
       
       # year年間の株価データの取得
@@ -44,7 +45,7 @@ def get_DataFrame(code, For_Years):
         url = code_url + str(year) + "/" 
       
         #取得したHTMLからBeautifulSoupオブジェクト作成(Year Pages)
-        response = requests.get(url)
+        response = requests.get(url, headers=header)
         soup = bs(response.content, "html.parser")
 
         #株価データを取得し、Dataframe化する
@@ -60,9 +61,10 @@ def get_DataFrame(code, For_Years):
         #codeカラムをassignでDataframeに新規追加する ※code_nameの最初の4桁までが証券コード
         df = df.assign(code=code_name.get_text()[:4])
         
-        time.sleep(1)
+        time.sleep(5)
 
     except (ValueError, IndexError, AttributeError):
+        print(str(code) + ": Error")
         return None
 
     return df
@@ -86,6 +88,6 @@ def multi_Brand(code_range, years):
         if brand is not None:
             df = pd.concat([df, brand]).reset_index(drop=True)                                  
 
-        time.sleep(0.5)
+        time.sleep(5)
 
     return df
