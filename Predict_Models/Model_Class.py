@@ -3,7 +3,6 @@ from matplotlib import pyplot as plt
 from matplotlib.dates import MonthLocator, num2date
 from matplotlib.ticker import FuncFormatter
 
-import pandas as pd
 import numpy as np
 import optuna
 from sklearn.model_selection import train_test_split
