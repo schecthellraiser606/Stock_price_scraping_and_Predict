@@ -11,6 +11,7 @@ import Predict_Models.GUI_Predict as PR
   
 
 def main():
+  # メインウィンドウ
   main_win = tkinter.Tk()
   main_win.title("Select function")
   main_win.geometry("300x300")
@@ -25,13 +26,14 @@ def main():
   main_frm = ttk.Frame(main_win, height=200)
   main_frm.pack(expand = True, fill = tkinter.Y)
   
+  #各GUI（スクレイピング or 機械学習）へ異動
   def Scraping():
     SC.Scraping_win(main_win)
     
   def Predict():
     PR.Predict_win(main_win)
     
-  
+  #ボタン実装
   Scraping_Btn = ttk.Button(main_frm, text="スクレイピング", command=Scraping, width = 20)
   Scraping_Btn.pack(expand = True, fill = tkinter.X)
   

@@ -101,15 +101,6 @@ def Predict_win(win):
       sys.exit() 
       
     
-    def malti_model_1(file, days):
-      result = Model_1(file, days)
-      return result
-    
-    def malti_model_2(file, days, train_time):
-      result = Model_2(file, days, train_time)
-      return result
-      
-    
     #実行処理  
     def Predict_exe():
       

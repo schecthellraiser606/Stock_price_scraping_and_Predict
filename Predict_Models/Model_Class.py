@@ -7,6 +7,8 @@ import numpy as np
 import optuna
 from sklearn.model_selection import train_test_split
 
+
+#簡易なデフォルトモデル
 class Model_Nomal_Prophet(object):
   
     def __init__(self, code, days):
@@ -15,19 +17,24 @@ class Model_Nomal_Prophet(object):
       self.model = Prophet()
       
       
+    #グラフプロット関数のラベル変更
     def plot(self, fcst, ax=None, uncertainty=True, plot_cap=True, xlabel='ds', ylabel='y', figsize=...):
         xlabel = 'Date'
         ylabel = str(self.__code)+': Adj Close'
         return self.model.plot(fcst, ax=ax, uncertainty=uncertainty, plot_cap=plot_cap, xlabel=xlabel, ylabel=ylabel, figsize=figsize)
-      
+    
+    #予測期間における、土日を抜いたフレーム作成
     def Nomal_FutureFrame(self):
         future = self.model.make_future_dataframe(periods=self.__days, freq = 'd')
         future = future[future["ds"].dt.weekday < 5]
         
         return future
-      
+
+  
+#簡易評価グラフプロット
 class figure_draw(object):
   
+  #MSE、MAPEのプロット
   def plot_MSE_MAPE(self, data):
         fig = plt.figure()
         ax1 = fig.add_subplot(2, 1, 1)
@@ -44,7 +51,7 @@ class figure_draw(object):
       
       
 
-
+#ハイパーパラメータ探索モデル
 class hyper_search_model(object):
   
   def __init__(self, code, days, train_time):
@@ -126,7 +133,7 @@ class hyper_search_model(object):
     return study
   
   def Create_Model(self, df_tmp):
-    #train, testで分割し、ハイパーパラメータ策定
+    #train, testで分割し、ハイパーパラメータを適用したモデル作成
     df_train, df_test = train_test_split(df_tmp)
     study = self.__optuna_parameter(df_train, df_test)
   
