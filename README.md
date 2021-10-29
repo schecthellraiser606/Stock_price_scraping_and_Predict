@@ -1,6 +1,7 @@
 # Scraping and Machine learning
 
 株価スクレイピングとProphetを用いた株価予想（機械学習）
+
 上記２機能を備えたアプリ
  
 # DEMO
