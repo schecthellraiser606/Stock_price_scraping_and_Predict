@@ -37,7 +37,7 @@ python main.py
  
 # Note
  
-注意点などがあれば書く
+注意点
  
 # Author
 
