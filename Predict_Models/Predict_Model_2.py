@@ -33,6 +33,8 @@ def Model_2(file, days, train_time):
     df_CV = []
     df_performance = []
     
+    figlist = []
+    
     i = 0
     for code in code_lists:
         #証券コードごとに分析
@@ -81,8 +83,8 @@ def Model_2(file, days, train_time):
             forecast_data_on_code.append(model_on_code[i].predict(future_data_on_code[i]))
         
         #プロット
-        fig0 = model_on_code[i].plot(forecast_data_on_code[i], xlabel='Date', ylabel=str(code)+': Adj Close') 
-        model_on_code[i].plot_components(forecast_data_on_code[i])
+        fig0 = model_on_code[i].plot(forecast_data_on_code[i], xlabel='Date', ylabel=str(code)+': Adj Close', figsize=(6.5, 5)) 
+        fig1 = model_on_code[i].plot_components(forecast_data_on_code[i], figsize=(6.5, 6))
         
         #モデル評価のための交差検証(Cross_Validation)
         df_CV.append(cross_validation(model_on_code[i], initial='1 days', period=str(rows/8)+' days', horizon=str(rows/4)+' days'))
@@ -91,14 +93,16 @@ def Model_2(file, days, train_time):
         
         #モデル評価の見える化
         draw = MC.figure_draw()
-        fig1 = draw.plot_MSE_MAPE(df_performance[i])
-        fig1.tight_layout()
-        fig1.show()
+        fig2 = draw.plot_MSE_MAPE(df_performance[i])
+        fig2.tight_layout()
+        
+        figlist.append([code, fig0, fig1, fig2])
         
         
         i += 1
         
     db.close()
     
+    return figlist, i
     
 
