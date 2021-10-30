@@ -26,6 +26,7 @@ scikit-learn              0.24.2
 ipython                   7.27.0
 notebook                  6.4.3
 jupyter                   1.0.0
+reppy                     0.4.14
 ```
 
  
@@ -33,11 +34,14 @@ jupyter                   1.0.0
  
 Requirementで列挙したライブラリのインストール方法
 `conda`（Anaconda利用者）や`pip`コマンドで適当にインストールしてください。
+
 ※デフォルトでインストールされているものもありますので注意
+
 ※インストールの前に`pip`、`conda`等、今あるものは最新化しておきましょう。
  
+{例}
 
-```bash:例
+```bash
 pip install pandas
 
 pip install requests
@@ -58,7 +62,7 @@ conda install -c conda-forge fbprophet
 
 pip install numpy
 
-#このパラメータ探索PKGはPATH
+#このパラメータ探索PKGはPATH関係でエラーが出やすい、PKG最新化をお忘れなく。
 conda install -c conda-forge optuna
 
 conda install -c anaconda scikit-learn
@@ -66,6 +70,9 @@ conda install -c anaconda scikit-learn
 pip install jupyter
 pip install ipython
 pip install notebook
+
+#このreppyをインストールする際には「C++」が必須で必要
+pip install reppy
 ```
  
 # Usage
@@ -84,7 +91,21 @@ python main.py
  
 # Note
  
-注意点
+注意点としては、スクレイピングを行えるサイトは限られるので、しっかり各サイトの「robots.txt」を確認しよう。
+
+`ipynb`形式で簡易にスクレイピングOKかどうか確認できるソースを組んだので、活用をしてみてほしい。
+
+これで`False`が出た場合は一度ブラウザ直打ちで確認してみるのもいいだろう。
+
+※サイトによって「robots.txt」の記載方法が違うため。
+
+
+```Python:Robots.ipynb
+from reppy.robots import Robots
+
+robots = Robots.fetch('https://...../robots.txt')
+print(robots.allowed('https://...', '*'))
+```
  
 # Author
 
