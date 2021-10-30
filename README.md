@@ -100,7 +100,7 @@ python main.py
 ※サイトによって「robots.txt」の記載方法が違うため。
 
 
-```Python:Robots.ipynb
+```Python
 from reppy.robots import Robots
 
 robots = Robots.fetch('https://...../robots.txt')
