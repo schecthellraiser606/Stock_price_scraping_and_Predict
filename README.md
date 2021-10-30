@@ -1,11 +1,14 @@
 # Scraping and Machine learning
 
-株価スクレイピングとProphetを用いた株価予想（機械学習）
+株価スクレイピングとProphetを用いた株価予想（機械学習）。
 
-上記２機能を備えたアプリ
+上記２機能を備えたアプリ。
  
 # DEMO
  
+以下図のように株価を予測できる。
+
+![Prophet_img](https://user-images.githubusercontent.com/89838264/139519167-49f8b4c1-ffed-4fb7-a3bd-956b19e2e8b4.jpeg)
 
  
 # Requirement
@@ -32,10 +35,10 @@ reppy                     0.4.14
  
 # Installation
  
-Requirementで列挙したライブラリのインストール方法
+Requirementで列挙したライブラリのインストール方法。
 `conda`（Anaconda利用者）や`pip`コマンドで適当にインストールしてください。
 
-※デフォルトでインストールされているものもありますので注意
+※デフォルトでインストールされているものもありますので注意。
 
 ※インストールの前に`pip`、`conda`等、今あるものは最新化しておきましょう。
  
