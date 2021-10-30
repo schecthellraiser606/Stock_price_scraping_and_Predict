@@ -10,6 +10,12 @@
 
 ![Prophet_img](https://user-images.githubusercontent.com/89838264/139519280-7a94aa1e-3483-4064-9f6b-5f98e371c124.jpeg)
 
+GUIの例は以下の図である。
+
+※そこまで分かりやすいものではないかもしれないが。
+
+![GUI](https://user-images.githubusercontent.com/89838264/139519752-b5587cbb-6a3b-4d8d-a3c2-1257ed83a5a2.png)
+
  
 # Requirement
 本アプリで必要となるPythonパッケージを以下に記載する。
