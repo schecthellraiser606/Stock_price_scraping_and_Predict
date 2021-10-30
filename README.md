@@ -32,11 +32,11 @@ fbprophet                 0.7.1
 numpy                     1.19.5
 optuna                    2.10.0
 scikit-learn              0.24.2
+
+#任意
 ipython                   7.27.0
 notebook                  6.4.3
 jupyter                   1.0.0
-
-#任意
 reppy                     0.4.14
 ```
 
