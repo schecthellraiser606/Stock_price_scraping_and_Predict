@@ -8,7 +8,7 @@
  
 以下図のように株価を予測できる。
 
-![Prophet_img](https://user-images.githubusercontent.com/89838264/139519167-49f8b4c1-ffed-4fb7-a3bd-956b19e2e8b4.jpeg)
+![Prophet_img](https://user-images.githubusercontent.com/89838264/139519280-7a94aa1e-3483-4064-9f6b-5f98e371c124.jpeg)
 
  
 # Requirement
