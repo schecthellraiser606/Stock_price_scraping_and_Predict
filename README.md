@@ -19,6 +19,7 @@ GUIの例は以下の図である。
  
 # Requirement
 本アプリで必要となるPythonパッケージを以下に記載する。
+※環境は基本的にWindows依存
 
 ```bash
 pandas                    1.3.3
