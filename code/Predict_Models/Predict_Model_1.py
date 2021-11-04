@@ -31,7 +31,9 @@ def Model_1(file, days):
     df_performance = []
     figlist = []
     
+
     for i, code in enumerate(code_lists):
+
         #証券コードごとに分析
         df_tmp = df_db.loc[df_db["code"]==code]
         rows = len(df_tmp)

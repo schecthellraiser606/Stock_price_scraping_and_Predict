@@ -36,6 +36,7 @@ def Model_2(file, days, train_time):
     figlist = []
     
     for i, code in enumerate(code_lists):
+
         #証券コードごとに分析
         df_tmp = df_db.loc[df_db["code"]==code]
         df_tmp.reset_index(drop=True, inplace=True)
